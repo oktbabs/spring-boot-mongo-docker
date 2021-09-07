@@ -18,7 +18,7 @@ node{
        sh "docker login -u oktbabs -p ${DOCKER_HUB_CRED}"
        }
            
-        sh "docker push  oktbabs/spring-boot-mongo"
+        sh "docker push  oktbabs/spring-boot-mongo:1.0"
         
     }
 
