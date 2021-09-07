@@ -24,7 +24,7 @@ node{
 
     stage("Deploy application to kubernetes"){
         kubernetesDeploy(
-		configs: 'springBootMongo.yml',
+		configs: 'springBootMongo-PrivateRepo.yml',
 		kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
          enableConfigSubstitution: true		
         )
