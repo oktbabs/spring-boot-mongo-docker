@@ -27,6 +27,6 @@ node{
 		configs: 'springBootMongo.yml',
 		kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
          enableConfigSubstitution: true		
-        
+        )
     }
 }
