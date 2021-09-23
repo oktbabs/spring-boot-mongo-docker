@@ -10,7 +10,7 @@ node{
         
     }
     stage("Build Docker Image"){
-        sh 'docker build -t oktbabs/spring-boot-mongo:1.0 .'
+        sh 'sudo docker build -t oktbabs/spring-boot-mongo:1.0 .'
         
     }
 
