@@ -16,7 +16,7 @@ node{
     stage("Push to docker image to nexus"){
         withCredentials([usernameColonPassword(credentialsId: 'NEXUS-REPO-CREDS', variable: 'NEXUS-REPO-CREDS')]) {
               
-            sh "nexus login -u admin -p ${NEXUS-REPO-CREDS} -U http://jenkinserver.mycompany.com:8081"
+            sh "nexus login -u admin -p ${NEXUS-REPO-CREDS} -U http://jenkinserver.mycompany.com:8081> commandResult" result = readFile('commandResult').trim()
           }
         
         sh 'sudo docker push timmyfirstnexus/spring-boot-mongo'
