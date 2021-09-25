@@ -14,15 +14,10 @@ node{
         
     }
     stage("Connect to nexus"){
-        withCredentials([usernameColonPassword(credentialsId: 'NEXUS-REPO-CREDS', variable: 'NEXUS-REPO-CREDS')]) {
-              
-            sh "sudo docker login -u admin -p ${NEXUS-REPO-CREDS} jenkinserver.mycompany.com:8085"
-          }
-    }
-    stage("Push docker image to nexus"){
-        sh 'sudo docker push jenkinserver.mycompany.com:8085/spring-boot-mongo'
-        
-    }
-
+        withCredentials([usernamePassword(credentialsId: 'NEXUS-REPO-CREDS', passwordVariable: 'Kala8Kuta', usernameVariable: 'admin')]) {
+        sh "sudo docker login -u ${NEXUS-REPO-CREDS} -p ${NEXUS-REPO-CREDS} jenkinserver.mycompany.com:8085"
 }
-
+          }
+                sh 'sudo docker push jenkinserver.mycompany.com:8085/spring-boot-mongo'
+    }
+}
