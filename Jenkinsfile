@@ -10,7 +10,7 @@ node{
         
     }
     stage("Build Docker Image"){
-        sh 'sudo docker build -t http://jenkinserver.mycompany.com:8085/spring-boot-mongo .'
+        sh 'sudo docker build -t  timmyfirstnexus/spring-boot-mongo .'
         
     }
     stage("Connect to nexus"){
