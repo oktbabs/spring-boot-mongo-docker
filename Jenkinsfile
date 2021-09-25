@@ -17,7 +17,7 @@ node{
         withCredentials([usernamePassword(credentialsId: 'NEXUS-REPO-CREDS', passwordVariable: 'Kala8Kuta', usernameVariable: 'admin')]) {
         sh "sudo docker login -u ${NEXUS-REPO-CREDS} -p ${NEXUS-REPO-CREDS} jenkinserver.mycompany.com:8085"
 }
-          }
+          
                 sh 'sudo docker push jenkinserver.mycompany.com:8085/spring-boot-mongo'
     }
 }
