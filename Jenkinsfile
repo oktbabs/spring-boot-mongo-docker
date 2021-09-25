@@ -16,7 +16,7 @@ node{
     stage("Connect to nexus"){
         withCredentials([usernameColonPassword(credentialsId: 'NEXUS-REPO-CREDS', variable: 'NEXUS-REPO-CREDS')]) {
               
-            sh "sudo docker login -u admin -p ${NEXUS-REPO-CREDS} http://jenkinserver.mycompany.com:8085"
+            sh "sudo docker login -u admin -p ${NEXUS-REPO-CREDS} http://jenkinserver.mycompany.com:8081"
           }
     }
     stage("Push docker image to nexus"){
