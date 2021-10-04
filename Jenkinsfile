@@ -20,7 +20,10 @@ node{
        
                 sh 'sudo docker push jenkinserver.mycompany.com:8085/spring-boot-mongo'
     }
-  
+      stage("Sonarqube scan"){
+        sh 'mvn sonar:sonar -Dsonar.projectKey=sonar-project -Dsonar.host.url=http://jenkinserver.mycompany.com:9000 -Dsonar.login=06b950daced45284efb2ba977049a35ae8d10816'
+        
+    }
   /**  
     stage("Connect to nexusartefactuploader"){    
     nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-mongo.jar', classifier: '', file: 'target/spring-boot-mongo', type: 'jar']], credentialsId: 'NEXUS3-REPO-CREDS', groupId: 'com.mt', nexusUrl: 'jenkinserver.mycompany.com:8085', nexusVersion: 'nexus3', protocol: 'http', repository: 'timmyfirstnexus', version: '1.0'
