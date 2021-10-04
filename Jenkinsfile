@@ -23,6 +23,6 @@ node{
     */
     
     stage("Connect to nexusartefactuploader"){    
-    nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-mongo', classifier: '', file: 'target/spring-boot-mongo-1.0', type: 'war']], credentialsId: 'NEXUS3-REPO-CREDS', groupId: 'com.mt', nexusUrl: 'jenkinserver.mycompany.com:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'timmyfirstnexus', version: '1.0'
+    nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-mongo', classifier: '', file: 'target/spring-boot-mongo-1.0', type: 'war']], credentialsId: 'NEXUS3-REPO-CREDS', groupId: 'com.mt', nexusUrl: 'jenkinserver.mycompany.com:8085', nexusVersion: 'nexus3', protocol: 'http', repository: 'timmyfirstnexus', version: '1.0'
 }
 }
