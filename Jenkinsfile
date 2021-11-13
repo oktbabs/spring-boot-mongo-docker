@@ -1,5 +1,5 @@
 node{
-    tool name: 'Maven382', type: 'maven'
+    tool name: 'Maven-383', type: 'maven'
     
     stage("Git Checkout"){
         git 'https://github.com/oktbabs/spring-boot-mongo-docker.git'
