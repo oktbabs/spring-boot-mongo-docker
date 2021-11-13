@@ -19,8 +19,9 @@ node{
         
     }
    stage("Connect to nexus"){
-     withCredentials([string(credentialsId: 'NEXUS_PASS', variable: 'NEXUS_PASS')]) {
-       sh "sudo docker login -u admin -p ${NEXUS_PASS} jenkinserver.mycompany.com:8085"
+//     withCredentials([string(credentialsId: 'NEXUS_PASS', variable: 'NEXUS_PASS')]) {
+     withCredentials([usernamePassword(credentialsId: 'NEXUS_SYSTEM', passwordVariable: 'NEXUS_PASS', usernameVariable: 'NEXUS_USER')]) {
+         sh "sudo docker login -u ${NEXUS_USER} -p ${NEXUS_PASS} jenkinserver.mycompany.com:8085"
 }
        
                 sh 'sudo docker push jenkinserver.mycompany.com:8085/spring-boot-mongo:{BUILD_NUMBER}'
