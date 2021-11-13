@@ -13,6 +13,11 @@ node{
         sh 'sudo docker build -t  jenkinserver.mycompany.com:8085/spring-boot-mongo .'
         
     }
+    
+        stage("List environment variables"){
+        sh 'printenv'
+        
+    }
    stage("Connect to nexus"){
      withCredentials([string(credentialsId: 'NEXUS_PASS', variable: 'NEXUS_PASS')]) {
        sh "sudo docker login -u admin -p ${NEXUS_PASS} jenkinserver.mycompany.com:8085"
