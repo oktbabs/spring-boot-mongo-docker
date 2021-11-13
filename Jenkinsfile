@@ -10,7 +10,7 @@ node{
         
     }
     stage("Build Docker Image"){
-        sh 'sudo docker build -t  jenkinserver.mycompany.com:8085/spring-boot-mongo .'
+        sh 'sudo docker build -t  jenkinserver.mycompany.com:8085/spring-boot-mongo:{BUILD_NUMBER} .'
         
     }
     
@@ -23,7 +23,7 @@ node{
        sh "sudo docker login -u admin -p ${NEXUS_PASS} jenkinserver.mycompany.com:8085"
 }
        
-                sh 'sudo docker push jenkinserver.mycompany.com:8085/spring-boot-mongo'
+                sh 'sudo docker push jenkinserver.mycompany.com:8085/spring-boot-mongo:{BUILD_NUMBER}'
     }
       stage("Sonarqube scan"){
         sh 'mvn sonar:sonar -Dsonar.projectKey=sonar-project -Dsonar.host.url=http://jenkinserver.mycompany.com:9000 -Dsonar.login=06b950daced45284efb2ba977049a35ae8d10816'
