@@ -10,7 +10,7 @@ node{
         
     }
     stage("Build Docker Image"){
-        sh 'sudo docker build -t  jenkinserver.mycompany.com:8085/spring-boot-mongo:{BUILD_NUMBER} .'
+        sh 'sudo docker build -t  jenkinserver.mycompany.com:8085/spring-boot-mongo:${BUILD_NUMBER} .'
         
     }
     
